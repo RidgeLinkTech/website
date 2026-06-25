@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "team": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specialties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "role",
+    "team",
+    "image",
+    "summary"
+  ]
+}

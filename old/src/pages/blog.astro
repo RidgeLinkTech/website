@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+
+<BaseLayout title="Blog | RidgeLink Technologies">
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Insights</div>
+      <h1>RidgeLink Tech Blog</h1>
+      <div class="grid grid-3">
+        {posts.map((post) => (
+          <article class="card">
+            <h3>{post.data.title}</h3>
+            <strong>By {post.data.author}</strong>
+            <p>{post.data.summary}</p>
+            <div class="badges">
+              {post.data.tags.map((tag) => <span class="badge">{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

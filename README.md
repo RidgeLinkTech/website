@@ -1,29 +1,51 @@
 # RidgeLink Website
 
-Public-facing website for RidgeLink Technologies.
+Public-facing Astro website for RidgeLink Technologies.
 
-## Purpose
+## Overview
 
-This repository contains the marketing and informational website for RidgeLink Technologies. It presents the company’s services, positioning, and supporting content in a format suitable for portfolio demonstrations and professional presentation.
+This repo now uses the root-level Astro app as the active website deployment target.
 
-## What the site represents
+- Production domain: `https://ridgelink.us`
+- Secondary domain: `https://www.ridgelink.us`
+- Canonical host: `ridgelink.us` (www redirects to apex)
 
-RidgeLink Technologies is a fictional IT services, cybersecurity, cloud infrastructure, and managed services company. The website should communicate secure, reliable, and scalable technology solutions with a polished, professional tone.
+The `old/` directory remains as historical reference only and is not used for deployment.
 
-## Content areas
+## Local Development
 
-- Company overview and positioning
-- Service pages for infrastructure, cloud, cybersecurity, networking, and managed services
-- Supporting pages that link to technical documentation or reference material
-- Visual content sourced from the branding and design-system repositories
+```bash
+npm install
+npm run dev
+```
 
-## Usage
+## Production Build
 
-Use this repository for the public-facing web experience only. Reuse shared brand and design assets from the related repositories so the site stays aligned with the broader RidgeLink identity.
+```bash
+npm run build
+```
 
-## Related repositories
+## Cloudflare Pages Configuration
 
-- [branding](../branding)
-- [design-system](../design-system)
-- [docs](../docs)
-- [personas](../personas)
+- Framework preset: `Astro`
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Production branch: `main`
+
+## Domain Setup
+
+In Cloudflare Pages custom domains, add both domains:
+
+- `ridgelink.us`
+- `www.ridgelink.us`
+
+`www` is redirected to apex by `public/_redirects`:
+
+```text
+https://www.ridgelink.us/* https://ridgelink.us/:splat 301!
+```
+
+## Notes
+
+- Security and cache headers are defined in `public/_headers`.
+- Sitemap generation is enabled via `@astrojs/sitemap`.

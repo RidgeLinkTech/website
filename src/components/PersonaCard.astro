@@ -1,0 +1,14 @@
+---
+const { person } = Astro.props;
+---
+
+<article class="card person-card">
+  <img src={`/images/personas/${person.data.image}`} alt={`${person.data.name} headshot`} />
+  <div class="body">
+    <h3>{person.data.name}</h3>
+    <strong>{person.data.role}</strong>
+    <div class="team">{person.data.team}</div>
+    <p>{person.data.summary}</p>
+    <a href={`/team/${person.id.replace('.md', '')}`}>View profile</a>
+  </div>
+</article>

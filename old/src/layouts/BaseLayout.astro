@@ -1,0 +1,42 @@
+---
+import '../styles.css';
+
+const {
+  title = 'RidgeLink Technologies',
+  description = 'Secure infrastructure, cloud, cybersecurity, and managed IT services.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="/">RidgeLink Tech</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/team">Team</a>
+          <a href="/case-studies">Case Studies</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <strong>RidgeLink Technologies</strong><br />
+        Fictional company site for portfolio, demos, documentation, and lab scenarios.
+      </div>
+    </footer>
+  </body>
+</html>

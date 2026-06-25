@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const personas = await getCollection("personas");
+  return personas.map((person) => ({
+    params: { slug: person.id },
+    props: { person },
+  }));
+}
+
+const { person } = Astro.props;
+const { Content } = await render(person);
+---
+
+<BaseLayout title={`${person.data.name} | RidgeLink Technologies`}>
+  <section class="section">
+    <div class="container">
+      <div
+        class="grid"
+        style="grid-template-columns: 320px 1fr; align-items: start;"
+      >
+        <article class="card person-card">
+          <img
+            src={`/images/personas/${person.data.image}`}
+            alt={`${person.data.name} headshot`}
+          />
+          <div class="body">
+            <h1 style="font-size: 2rem;">{person.data.name}</h1>
+            <strong>{person.data.role}</strong>
+            <p>{person.data.team}</p>
+            <div class="badges">
+              {
+                person.data.certifications?.map((cert) => (
+                  <span class="badge">{cert}</span>
+                ))
+              }
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <p class="lead">{person.data.summary}</p>
+          <h2>Specialties</h2>
+          <div class="badges">
+            {
+              person.data.specialties?.map((item) => (
+                <span class="badge">{item}</span>
+              ))
+            }
+          </div>
+          <Content />
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
