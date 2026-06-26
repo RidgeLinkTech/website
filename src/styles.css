@@ -35,8 +35,22 @@ a:hover { text-decoration: underline; }
 
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; gap: 24px; }
 .logo { font-weight: 800; color: var(--brand); font-size: 1.2rem; }
+.nav-right { display: flex; align-items: center; gap: 14px; }
 .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
 .nav-links a { color: var(--ink); font-weight: 600; font-size: .95rem; }
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--brand);
+}
+.linkedin-link svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--brand-2);
+}
 
 .hero {
   padding: 84px 0;
@@ -90,6 +104,10 @@ h3 { color: var(--brand); margin-bottom: 8px; }
   background: #fff;
 }
 
+.footer-social {
+  margin-top: 10px;
+}
+
 .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 .badge { background: var(--accent); color: var(--brand); border-radius: 999px; padding: 5px 10px; font-weight: 700; font-size: .85rem; }
 
@@ -99,5 +117,6 @@ h3 { color: var(--brand); margin-bottom: 8px; }
 @media (max-width: 640px) {
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .nav { align-items: flex-start; flex-direction: column; }
+  .nav-right { width: 100%; align-items: flex-start; flex-direction: column; }
   .hero { padding: 56px 0; }
 }
