@@ -4,13 +4,11 @@ Public-facing Astro website for RidgeLink Technologies.
 
 ## Overview
 
-This repo now uses the root-level Astro app as the active website deployment target.
+This repository contains the active Astro app deployed as the RidgeLink website.
 
 - Production domain: `https://ridgelink.us`
 - Secondary domain: `https://www.ridgelink.us`
 - Canonical host: `ridgelink.us` (www redirects to apex)
-
-The `old/` directory remains as historical reference only and is not used for deployment.
 
 ## Local Development
 
